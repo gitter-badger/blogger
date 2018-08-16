@@ -27,6 +27,8 @@ class ArticlesController < ApplicationController
 		@articles = Article.find(params[:id])
 		@articles.update(article_params) #.update method automatically saves changes
 
+		flash.notice = "Article '#{@articles.title}' Updated!"
+
 		redirect_to article_path(@articles)
 	end 
 
