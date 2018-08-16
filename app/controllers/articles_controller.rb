@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 			# @articles.title = params[:article][:title]
 			# @articles.body = params[:article][:body])
 		@articles.save
+		flash.notice = "Article '#{@articles.title}' Created!"
 		redirect_to article_path(@articles)
 	end 
 
@@ -35,6 +36,7 @@ class ArticlesController < ApplicationController
 	def destroy
 		@articles = Article.find(params[:id])
 		@articles.destroy
+		flash.notice = "Article '#{@articles.title}' deleted"
 		redirect_to action: "index"
 	end 
 
