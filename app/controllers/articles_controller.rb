@@ -23,6 +23,13 @@ class ArticlesController < ApplicationController
 		redirect_to article_path(@articles)
 	end 
 
+	def update
+		@articles = Article.find(params[:id])
+		@articles.update(article_params) #.update method automatically saves changes
+
+		redirect_to article_path(@articles)
+	end 
+
 	def destroy
 		@articles = Article.find(params[:id])
 		@articles.destroy
